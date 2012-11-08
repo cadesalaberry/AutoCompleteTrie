@@ -25,12 +25,12 @@ In this question, you will work on the problem of storing a set of words (also c
 
 A trie is a type of tree used to efficiently index keys by storing their prefixes. (The term trie comes from the word “retrieval”. It is sometimes pronounced “try” although many people pronounce it the same as “tree”. ) The main property of a trie is that each edge corresponds to a character. Thus the path from the root of the trie to any node in the trie defines a string. The string defined by each node is a prefix of all strings defined by the descendents of that node.
 
-Below is an example trie. It contains the following keys: a, and, ax, dog, door, dot. You will note that the dashed nodes correspond to prefixes in the trie that are not in our list of keys (an, d, do, doo). The trie must also keep track of this distinction by storing for each node whether it corresponds to a key or not.
+Below is an example trie. It contains the following keys: *a, and, ax, dog, door, dot*. You will note that the dashed nodes correspond to prefixes in the trie that are not in our list of keys (*an, d, do, doo*). The trie must also keep track of this distinction by storing for each node whether it corresponds to a key or not.
 
 Note that if C is the set of all possible characters defined at the edges, then each node can have
 at most k = | C | children, where the | C | notation just means the number of elements in set C.
 
-![alt text](https://docs.google.com/drawings/pub?id=1AQSLGJeQNIYg-FBVL_N4-ZhfrnPOHAFdHE2JqDo7df4&w=960&h=720 "Example of Trie with the words and, ax, dog, door, dot")
+![alt text](https://docs.google.com/drawings/pub?id=1AQSLGJeQNIYg-FBVL_N4-ZhfrnPOHAFdHE2JqDo7df4&w=960&h=720 "Example of Trie with the words a, and, ax, dog, door, dot")
 
 
 ### Your task
