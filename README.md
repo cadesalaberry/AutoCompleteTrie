@@ -74,7 +74,7 @@ Using the O( ) notation for *worst-case* and Ω() notation for *best-case*:
 
 **5)** what is the O( ) bound of *loadKeys()* for a BST ?
 
-**6)** what is the Ω ( ) bound of loadKeys()* for a BST ?
+**6)** what is the Ω ( ) bound of *loadKeys()* for a BST ?
 
 **7)** what is the O( ) bound of *contains()* for a BST ?
 
