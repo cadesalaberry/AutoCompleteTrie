@@ -92,4 +92,4 @@ as another string of length m requires at least one comparison and at most m com
 Submit a text file A2Q2.txt with answers to the questions. If you wish, you may write Omega( ) instead of Ω ( ).
 
 
-![alt text](http://i.imgur.com/WWLYo.gif "Frustrated cat can't believe this is the 12th time he's clicked on an auto-linked README.md URL")
+![alt text](https://docs.google.com/drawings/pub?id=1AQSLGJeQNIYg-FBVL_N4-ZhfrnPOHAFdHE2JqDo7df4&w=960&h=720 "Frustrated cat can't believe this is the 12th time he's clicked on an auto-linked README.md URL")
