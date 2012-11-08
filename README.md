@@ -30,7 +30,7 @@ Below is an example trie. It contains the following keys: a, and, ax, dog, door,
 Note that if C is the set of all possible characters defined at the edges, then each node can have
 at most k = | C | children, where the | C | notation just means the number of elements in set C.
 
-![alt text](http://i.imgur.com/WWLYo.gif "Example of Trie with the words and, ax, dog, door, dot")
+![alt text](https://github.com/cadesalaberry/AutoComleteTrie/blob/master/AutoCompleteTrieSample.png "Example of Trie with the words and, ax, dog, door, dot")
 
 
 ### Your task
@@ -92,4 +92,4 @@ as another string of length m requires at least one comparison and at most m com
 Submit a text file A2Q2.txt with answers to the questions. If you wish, you may write Omega( ) instead of Ω ( ).
 
 
-![alt text](https://docs.google.com/drawings/pub?id=1AQSLGJeQNIYg-FBVL_N4-ZhfrnPOHAFdHE2JqDo7df4&w=960&h=720 "Frustrated cat can't believe this is the 12th time he's clicked on an auto-linked README.md URL")
+![alt text](http://i.imgur.com/WWLYo.gif "Frustrated cat can't believe this is the 12th time he's clicked on an auto-linked README.md URL")
