@@ -1,3 +1,6 @@
+/*
+ * @author cadesalaberry
+ */
 package a3posted;
 
 //  COMP 250 - Introduction to Computer Science - Fall 2012
