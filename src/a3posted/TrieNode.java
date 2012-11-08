@@ -19,97 +19,95 @@ package a3posted;
 //   that phrase.   We will cover casting of reference types when get to the
 //   Object Oriented Design part of this course.
 
-public class TrieNode
-{
+public class TrieNode {
 	// Highest allowable character index is NUMCHILDREN-1
-	//  (assuming one-byte ASCII i.e. "extended ASCII")
-	// NUMCHILDREN is constant (static and final).  
+	// (assuming one-byte ASCII i.e. "extended ASCII")
+	// NUMCHILDREN is constant (static and final).
 	// To access it, you need to say "TrieNode.NUMCHILDREN"
-	
-   public static final int NUMCHILDREN = 256;
 
-   private TrieNode parent;
-   private TrieNode[] children;
-   private int depth;          // 0 for root, 1 for root's children, 2 for their children, etc..
-   private char indexInParent; // character associated with edge between node and its parent
-   private boolean endOfKey;   // set to true of prefix associated with node is also a key.
-   
-   // Construct new, empty node with NUMCHILDREN children.  All the children are null. 
+	public static final int NUMCHILDREN = 256;
 
-   public TrieNode()
-   {
-      children = new TrieNode[NUMCHILDREN];
-      endOfKey = false;
-      depth = 0; 
-      indexInParent = (char)0; 
-   }
+	private TrieNode parent;
+	private TrieNode[] children;
+	private int depth; // 0 for root, 1 for root's children, 2 for their
+						// children, etc..
+	private char indexInParent; // character associated with edge between node
+								// and its parent
+	private boolean endOfKey; // set to true of prefix associated with node is
+								// also a key.
 
-   // Add a child to current node.  The child is associated with the character specified 
-   // by the index argument.  
+	// Construct new, empty node with NUMCHILDREN children. All the children are
+	// null.
 
-   public TrieNode createChild(char index) 
-   {	   
-	  TrieNode child       = new TrieNode();
+	public TrieNode() {
+		children = new TrieNode[NUMCHILDREN];
+		endOfKey = false;
+		depth = 0;
+		indexInParent = (char) 0;
+	}
 
-     // ADD YOUR CODE HERE
-      
-      return child;
-   }
+	// Add a child to current node. The child is associated with the character
+	// specified
+	// by the index argument.
 
-   // Get the child node associated with a given character, i.e. that character is on 
-   // the edge from this node to the child.  The child could be null.  
+	public TrieNode createChild(char index) {
+		TrieNode child = new TrieNode();
 
-   public TrieNode getChild(char index) 
-   {
-      return children[ (int) index];
-   }
+		// ADD YOUR CODE HERE
 
-   // Test whether the path from the root to this node is a key in the trie.  
-   // Return true if it is, false if it is prefix but not a key.
+		return child;
+	}
 
-   public boolean isEndOfKey() 
-   {
-      return endOfKey;
-   }
-   
-   // Set to true for the node associated with the last character of an input word
+	// Get the child node associated with a given character, i.e. that character
+	// is on
+	// the edge from this node to the child. The child could be null.
 
-   public void setEndOfKey(boolean endOfKey)
-   {
-      this.endOfKey = endOfKey;
-   }
+	public TrieNode getChild(char index) {
+		return children[(int) index];
+	}
 
-   // Depth of node (distance from root).
+	// Test whether the path from the root to this node is a key in the trie.
+	// Return true if it is, false if it is prefix but not a key.
 
-   public int getDepth() 
-   {
-      return depth;
-   }
+	public boolean isEndOfKey() {
+		return endOfKey;
+	}
 
-   // Get the parent
+	// Set to true for the node associated with the last character of an input
+	// word
 
-   public TrieNode getParent() 
-   {
-      return parent;
-   }
+	public void setEndOfKey(boolean endOfKey) {
+		this.endOfKey = endOfKey;
+	}
 
-   // Returns x such that parent.getChild(x) == this. 
+	// Depth of node (distance from root).
 
-   public char getIndexInParent()
-   {
-      return indexInParent;
-   }
+	public int getDepth() {
+		return depth;
+	}
 
-   /* Return the prefix (as a String) associated with this node.  This prefix
-    * is defined by descending from the root to this node.  However, you may
-    * find it is easier to implement by backtracking from the node to the root,
-    * composing the prefix string from last character to first.  
-   */
+	// Get the parent
 
-   public String toString()
-   {
-     	// ADD YOUR CODE  HERE
-	   
-	  return null;   //  REPLACE THIS STUB
-   }
+	public TrieNode getParent() {
+		return parent;
+	}
+
+	// Returns x such that parent.getChild(x) == this.
+
+	public char getIndexInParent() {
+		return indexInParent;
+	}
+
+	/*
+	 * Return the prefix (as a String) associated with this node. This prefix is
+	 * defined by descending from the root to this node. However, you may find
+	 * it is easier to implement by backtracking from the node to the root,
+	 * composing the prefix string from last character to first.
+	 */
+
+	public String toString() {
+		// ADD YOUR CODE HERE
+
+		return null; // REPLACE THIS STUB
+	}
 }
