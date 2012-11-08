@@ -30,7 +30,7 @@ Below is an example trie. It contains the following keys: a, and, ax, dog, door,
 Note that if C is the set of all possible characters defined at the edges, then each node can have
 at most k = | C | children, where the | C | notation just means the number of elements in set C.
 
-![alt text](https://github.com/cadesalaberry/AutoComleteTrie/blob/master/AutoCompleteTrieSample.png "Example of Trie with the words and, ax, dog, door, dot")
+![alt text](https://docs.google.com/drawings/pub?id=1AQSLGJeQNIYg-FBVL_N4-ZhfrnPOHAFdHE2JqDo7df4&w=960&h=720 "Example of Trie with the words and, ax, dog, door, dot")
 
 
 ### Your task
