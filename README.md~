@@ -1,11 +1,8 @@
 # COMP 250 Assignment 3
 
 Instructor: Prof. Michael Langer
-
 Posted	: Fri, Nov. 2, 2012
-
 Due	: Tue, Nov. 13, 2012 at 23:59
-
 
 ### General Instructions
 
@@ -56,13 +53,11 @@ Answer the following questions. In each case, give the tightest bound you can. F
 Your answer should be in terms of the variables n, m, k, N which are defined in this PDF. Note that even though k=NUMCHILDREN is a constant in the code, we are asking you to treat it as a variable.
 
 **1)** What is the O( ) bound of *loadKeys()* on T1?
-
 **2)** What is the O( ) bound of *contains()* on T1?
 
 Now recall that, in *TrieNode.java*, the children of each node is implemented using an array of size k = | C | which is the maximum number of children. In many tree data structures, however, the set of children is implemented using a linked list. Suppose we were to modify **TrieNode.java** so that each node's children were implemented using a LinkedList, rather than an array. Let T2 denote the modified trie data structure. Again, let N be the number of nodes in T2. *Note that this is the same N as above since the number of* **TrieNode** *objects will be the same*.
 
 **3)** What is the O( ) bound of *loadKeys()* on T2 ?
-
 **4)** What is the O( ) bound of *contains()* on T2 ?
 
 Finally, we can compare the runtime of tries to the runtimes of binary search trees (BST). Suppose we were to consider a BST data structure to store the same set of keys. Each node in this BST would correspond to a key, such that the left (or right) child of each node is lexicographically smaller (or bigger) than its parent.
@@ -73,11 +68,8 @@ Note that the running time of operations on a BST depends on how “balanced" th
 Using the O( ) notation for *worst-case* and Ω() notation for *best-case*:
 
 **5)** what is the O( ) bound of *loadKeys()* for a BST ?
-
 **6)** what is the Ω ( ) bound of loadKeys()* for a BST ?
-
 **7)** what is the O( ) bound of *contains()* for a BST ?
-
 **8)** what is the Ω ( ) bound of *contains()* for a BST ?
 
 Assume that these methods perform the same role as they do for tries i.e. *loadKeys()* populates
