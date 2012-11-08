@@ -52,8 +52,14 @@ public class TrieNode {
 
 	public TrieNode createChild(char index) {
 		TrieNode child = new TrieNode();
-
-		// ADD YOUR CODE HERE
+		
+		// Stores all the properties inherited from its parent:
+		child.parent = this;
+		child.depth = this.depth + 1;
+		
+		// Stores the character.
+		child.indexInParent = index;
+		children[index] = child;
 
 		return child;
 	}
@@ -106,8 +112,18 @@ public class TrieNode {
 	 */
 
 	public String toString() {
-		// ADD YOUR CODE HERE
 
-		return null; // REPLACE THIS STUB
+		String revertedString = "";
+		
+		TrieNode toWorkWith = this;
+
+		while(toWorkWith.getParent() != null) {
+			
+			revertedString += (char) toWorkWith.getIndexInParent();
+			toWorkWith = toWorkWith.getParent();
+
+		}
+		
+		return revertedString; // REPLACE THIS STUB
 	}
 }
