@@ -38,8 +38,21 @@ public class Trie {
 	// Then add TrieNodes in such a way that the key is inserted.
 
 	public void insert(String key) {
-		// ADD YOUR CODE HERE
 
+		TrieNode startNode = this.getPrefixNode(key);
+
+		// Gets the index of the first letter that differs.
+		int index = startNode.getDepth();
+
+		char currentChar;
+
+		while (index < key.length()) {
+			currentChar = key.charAt(index);
+			startNode.createChild(currentChar);
+			startNode = startNode.getChild(currentChar);
+			index++;
+		}
+		startNode.setEndOfKey(true);
 	}
 
 	// insert each key in the list (keys)
@@ -63,9 +76,31 @@ public class Trie {
 	// trie.
 
 	private TrieNode getPrefixNode(String word) {
-		// ADD YOUR CODE HEE
 
-		return null; // REPLACE THIS STUB
+		TrieNode toWorkWith = this.root;
+		int i = 0;
+		char character;
+		boolean letterMatches = true;
+
+		/*
+		 * Analyse the word letter by letter.
+		 */
+		while (i < word.length() && letterMatches) {
+
+			// Loads the character to check for presence.
+			character = word.charAt(i);
+
+			// Checks if the character is in the trie.
+			letterMatches = toWorkWith.getChild(character) != null;
+
+			// If it is, loads next letter. Else, return the TrieNode.
+			toWorkWith = letterMatches ? toWorkWith.getChild(character)
+					: toWorkWith;
+
+			i++;
+		}
+
+		return toWorkWith;
 	}
 
 	// Similar to getPrefixNode() but now return the prefix as a String,
@@ -78,9 +113,15 @@ public class Trie {
 	// Return a list of all keys in the trie that have the given prefix.
 
 	public ArrayList<String> getAllPrefixMatches(String prefix) {
-		// ADD YOUR CODE HERE
 
-		return null; // REPLACE THIS STUB
+		TrieNode prefixNode = this.getPrefixNode(prefix);
+
+		for (int i = 0; i < prefixNode.NUMCHILDREN; i++) {
+			if (prefixNode.getChild((char) i) != null) {
+				;
+			}
+		}
+		return null;
 	}
 
 }
