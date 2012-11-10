@@ -115,13 +115,27 @@ public class Trie {
 	public ArrayList<String> getAllPrefixMatches(String prefix) {
 
 		TrieNode prefixNode = this.getPrefixNode(prefix);
+		if (prefixNode==null) return null;
+		ArrayList<String> toReturn = new ArrayList<String>();
 
 		for (int i = 0; i < prefixNode.NUMCHILDREN; i++) {
-			if (prefixNode.getChild((char) i) != null) {
-				;
+
+			TrieNode nextNode = prefixNode.getChild((char) i);
+
+			if (nextNode != null) {
+				
+				if (nextNode.isEndOfKey()) {
+					// Adds the word if it is the end.
+					toReturn.add(nextNode.toString());
+				}
+				else {
+					// Gets the words with matching prefix.
+					this.getAllPrefixMatches(nextNode.toString());
+				}
+				
 			}
 		}
-		return null;
+		return toReturn;
 	}
 
 }
