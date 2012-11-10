@@ -24,19 +24,31 @@ public class Trie {
 		return root;
 	}
 
-	// Return true if key is contained in the trie (i.e. it was added by
-	// insert), false otherwise
-
+	/**
+	 * Returns true if key is contained in the trie (i.e. it was added by
+	 * insert), false otherwise.
+	 * 
+	 * @return presence of key in the Trie.
+	 * @author cadesalaberry
+	 */
 	public boolean contains(String key) {
-		// ADD YOUR CODE HERE
 
-		return false; // REPLACE THIS STUB
+		TrieNode lastCommonChar = this.getPrefixNode(key);
+
+		// Checks if the chain of characters exist.
+		boolean chainExists = key.equals(lastCommonChar.toString());
+
+		// Checks if the chain is well ended.
+		return chainExists && lastCommonChar.isEndOfKey();
 	}
 
-	// Insert key into the trie. The first step should be finding the longest
-	// prefix of key already in the trie (use getPrefixNode() below).
-	// Then add TrieNodes in such a way that the key is inserted.
-
+	/**
+	 * Inserts key into the trie. The first step should be finding the longest
+	 * prefix of key already in the trie (use getPrefixNode() below). Then add
+	 * TrieNodes in such a way that the key is inserted.
+	 * 
+	 * @author cadesalaberry
+	 */
 	public void insert(String key) {
 
 		TrieNode startNode = this.getPrefixNode(key);
@@ -46,6 +58,8 @@ public class Trie {
 
 		char currentChar;
 
+		// Adds nodes starting from the first non common character until the
+		// end.
 		while (index < key.length()) {
 			currentChar = key.charAt(index);
 			startNode.createChild(currentChar);
@@ -65,15 +79,18 @@ public class Trie {
 		return;
 	}
 
-	// Return the TrieNode corresponding the longest prefix of a key that is
-	// found.
-	// If no prefix is found, return the root.
-	// In the example in the PDF, running getPrefixNode("any") should return the
-	// dashed node under "n", since "an" is the longest prefix of "any" in the
-	// trie.
-	// getPrefixNode("addition") should return the node which is the first
-	// child of the root since "a" is the longest prefix of "addition" in the
-	// trie.
+	/**
+	 * Returns the TrieNode corresponding the longest prefix of a key that is
+	 * found. If no prefix is found, returns the root. In the example in the PDF,
+	 * running getPrefixNode("any") should return the dashed node under "n",
+	 * since "an" is the longest prefix of "any" in the trie.
+	 * getPrefixNode("addition") should return the node which is the first child
+	 * of the root since "a" is the longest prefix of "addition" in the trie.
+	 * 
+	 * @return end node of longest chain of common character.
+	 * 
+	 * @author cadesalaberry
+	 */
 
 	private TrieNode getPrefixNode(String word) {
 
@@ -93,7 +110,7 @@ public class Trie {
 			// Checks if the character is in the trie.
 			letterMatches = toWorkWith.getChild(character) != null;
 
-			// If it is, loads next letter. Else, return the TrieNode.
+			// If it is, loads next letter. Else, return the Node.
 			toWorkWith = letterMatches ? toWorkWith.getChild(character)
 					: toWorkWith;
 
@@ -110,12 +127,15 @@ public class Trie {
 		return getPrefixNode(word).toString();
 	}
 
-	// Return a list of all keys in the trie that have the given prefix.
-
+	/**
+	 * Returns a list of all keys in the trie that have the given prefix.
+	 * 
+	 */
 	public ArrayList<String> getAllPrefixMatches(String prefix) {
 
 		TrieNode prefixNode = this.getPrefixNode(prefix);
-		if (prefixNode==null) return null;
+		if (prefixNode == null)
+			return null;
 		ArrayList<String> toReturn = new ArrayList<String>();
 
 		for (int i = 0; i < prefixNode.NUMCHILDREN; i++) {
@@ -123,16 +143,16 @@ public class Trie {
 			TrieNode nextNode = prefixNode.getChild((char) i);
 
 			if (nextNode != null) {
-				
+
 				if (nextNode.isEndOfKey()) {
 					// Adds the word if it is the end.
 					toReturn.add(nextNode.toString());
-				}
-				else {
+				} else {
 					// Gets the words with matching prefix.
-					this.getAllPrefixMatches(nextNode.toString());
+					toReturn.addAll(this.getAllPrefixMatches(nextNode
+							.toString()));
 				}
-				
+
 			}
 		}
 		return toReturn;
