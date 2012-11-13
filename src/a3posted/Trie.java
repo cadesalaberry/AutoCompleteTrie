@@ -134,9 +134,9 @@ public class Trie {
 	public ArrayList<String> getAllPrefixMatches(String prefix) {
 
 		TrieNode prefixNode = this.getPrefixNode(prefix);
-		if (prefixNode == null)
-			return null;
-		ArrayList<String> toReturn = new ArrayList<String>();
+		
+		
+		ArrayList<String> suggestions = new ArrayList<String>();
 
 		for (int i = 0; i < prefixNode.NUMCHILDREN; i++) {
 
@@ -146,16 +146,16 @@ public class Trie {
 
 				if (nextNode.isEndOfKey()) {
 					// Adds the word if it is the end.
-					toReturn.add(nextNode.toString());
+					suggestions.add(nextNode.toString());
 				} else {
 					// Gets the words with matching prefix.
-					toReturn.addAll(this.getAllPrefixMatches(nextNode
+					suggestions.addAll(this.getAllPrefixMatches(nextNode
 							.toString()));
 				}
 
 			}
 		}
-		return toReturn;
+		return suggestions;
 	}
 
 }
