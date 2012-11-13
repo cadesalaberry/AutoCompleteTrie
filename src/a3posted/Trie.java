@@ -81,9 +81,9 @@ public class Trie {
 
 	/**
 	 * Returns the TrieNode corresponding the longest prefix of a key that is
-	 * found. If no prefix is found, returns the root. In the example in the PDF,
-	 * running getPrefixNode("any") should return the dashed node under "n",
-	 * since "an" is the longest prefix of "any" in the trie.
+	 * found. If no prefix is found, returns the root. In the example in the
+	 * PDF, running getPrefixNode("any") should return the dashed node under
+	 * "n", since "an" is the longest prefix of "any" in the trie.
 	 * getPrefixNode("addition") should return the node which is the first child
 	 * of the root since "a" is the longest prefix of "addition" in the trie.
 	 * 
@@ -134,28 +134,44 @@ public class Trie {
 	public ArrayList<String> getAllPrefixMatches(String prefix) {
 
 		TrieNode prefixNode = this.getPrefixNode(prefix);
-		
-		
+
 		ArrayList<String> suggestions = new ArrayList<String>();
 
-		for (int i = 0; i < prefixNode.NUMCHILDREN; i++) {
+		// Gets every endOfKeys following the prefix node,
+		// then adds their string representation to the suggestions.
+		for (TrieNode endOfKey : getEndsOfKeyFollowing(prefixNode)) {
+			suggestions.add(endOfKey.toString());
+		}
 
-			TrieNode nextNode = prefixNode.getChild((char) i);
+		return suggestions;
+	}
+
+	
+	/**
+	 * Gathers a collection of endOfKeys following the TrieNode given.
+	 * @param current
+	 * @return
+	 */
+	public ArrayList<TrieNode> getEndsOfKeyFollowing(TrieNode current) {
+
+		ArrayList<TrieNode> endOfKeys = new ArrayList<TrieNode>();
+
+		for (int i = 0; i < current.NUMCHILDREN; i++) {
+
+			TrieNode nextNode = current.getChild((char) i);
 
 			if (nextNode != null) {
 
+				// Adds the word if it is the end.
 				if (nextNode.isEndOfKey()) {
-					// Adds the word if it is the end.
-					suggestions.add(nextNode.toString());
-				} else {
-					// Gets the words with matching prefix.
-					suggestions.addAll(this.getAllPrefixMatches(nextNode
-							.toString()));
+					endOfKeys.add(nextNode);
 				}
 
+				// Gets the words with matching prefix.
+				endOfKeys.addAll(this.getEndsOfKeyFollowing(nextNode));
 			}
 		}
-		return suggestions;
+		return endOfKeys;
 	}
 
 }

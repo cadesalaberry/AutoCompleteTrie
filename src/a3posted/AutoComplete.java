@@ -49,7 +49,7 @@ public class AutoComplete
 		
 		//   For debugging, you may wish to use a small set of keys only.      
 
-		Collections.addAll(list, "a", "and", "ax", "dog", "door", "dot");
+		Collections.addAll(list, "a", "and", "ax", "dog", "door", "dot", "dots");
 
 		Trie   trie = new Trie();
 		trie.loadKeys(list);
