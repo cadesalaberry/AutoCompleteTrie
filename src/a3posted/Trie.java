@@ -136,19 +136,23 @@ public class Trie {
 		TrieNode prefixNode = this.getPrefixNode(prefix);
 
 		ArrayList<String> suggestions = new ArrayList<String>();
-
-		// Gets every endOfKeys following the prefix node,
-		// then adds their string representation to the suggestions.
-		for (TrieNode endOfKey : getEndsOfKeyFollowing(prefixNode)) {
-			suggestions.add(endOfKey.toString());
+		
+		// If the prefix is not in the Trie,
+		// don't bother parsing the Trie.
+		if (prefixNode != root) {
+			
+			// Gets every endOfKeys following the prefix node,
+			// then adds their string representation to the suggestions.
+			for (TrieNode endOfKey : getEndsOfKeyFollowing(prefixNode)) {
+				suggestions.add(endOfKey.toString());
+			}
 		}
-
 		return suggestions;
 	}
 
-	
 	/**
 	 * Gathers a collection of endOfKeys following the TrieNode given.
+	 * 
 	 * @param current
 	 * @return
 	 */
