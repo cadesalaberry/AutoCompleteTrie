@@ -49,7 +49,7 @@ public class AutoComplete
 		
 		//   For debugging, you may wish to use a small set of keys only.      
 
-		Collections.addAll(list, "a", "and", "ax", "dog", "door", "dot", "dots");
+		Collections.addAll(list, "a", "and", "ax", "dog", "door", "dot", "dots", "");
 
 		Trie   trie = new Trie();
 		trie.loadKeys(list);
@@ -88,6 +88,7 @@ public class AutoComplete
 		System.out.println("autocomplete a = " + trie.getAllPrefixMatches("a"));
 		System.out.println("autocomplete do = " + trie.getAllPrefixMatches("do"));
 		System.out.println("autocomplete c = " + trie.getAllPrefixMatches("c"));
+		System.out.println("autocomplete \"\" = " + trie.getAllPrefixMatches(""));
 
 	}
 }
