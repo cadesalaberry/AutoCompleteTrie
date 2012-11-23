@@ -1,0 +1,104 @@
+1) What is the O( ) bound of loadKeys() on T1?
+
+	We are inserting n keys made out of m characters at most
+	(N nodes in general) to the Trie T1.
+
+	Let check out the insert() method routine:
+	- Get the prefix.
+	- Fill in the missing nodes starting from the prefix.
+
+	The routine travels through m nodes max.
+	Inserting n keys of m length at most will take n*m nodes-travel.
+
+	Thus O( ) bound of loadKeys() is O(nm).
+
+
+2) What is the O( ) bound of contains() on T1?
+
+	When calling contains, you are inputting a key of length at most m.
+	The algorithm then travels through m nodes at most,
+	checking if they match on the fly.
+
+	It travels through m nodes at most.
+
+	Thus O( ) bound of contains() is O(m).
+
+
+3) What is the O( ) bound of loadKeys() on T2 ?
+
+	We are inserting n keys made out of m characters at most
+	(N nodes in general) to the Trie T2.
+
+	Let check out the insert() method routine:
+	- Get the prefix.
+	- Fill in the missing nodes starting from the prefix.
+
+	The routine travels through m nodes, but in order to get those nodes,
+	it should go through all the previously recorded ones in the LinkedList at the parent node.
+	The LinkedList contains at most k nodes.
+	At max, the algorithm will then go through m*k nodes.
+
+	Inserting n keys of m length  will take at most n*(m*k) nodes-travel.
+
+	Thus O( ) bound of loadKeys() is O(nmk).
+
+4) What is the O( ) bound of contains() on T2 ?
+
+	When calling contains, you are inputting a key of length at most m.
+	The algorithm then travels through m nodes, checking if they match on the fly.
+	However to get the correct nextNode at each and every node,
+	the algorithm will go through all the previously recorded ones
+	in the LinkedList at the parent node, thus at max, it will go through m*k nodes.
+
+	Thus O( ) bound of contains() is O(mk).
+
+
+5) what is the O( ) bound of loadKeys() for a BST ?
+
+	We are inserting n keys in the BST.
+
+	If the BST is not well balanced, all the nodes will be either smaller
+	or greater than the node we would like to insert.
+
+	The algorithm will then have to go through each and every node of the BST,
+	comparing lexicographically m times at most at every steps.
+
+	Considering the fact that there is N nodes in the BST,
+	
+	O( ) bound of loadKeys() will be O(mN).
+
+6) what is the Ω( ) bound of loadKeys() for a BST ?
+
+	We are inserting n keys in the BST.
+
+	If the BST is well balanced, we have a complete Binary Tree.
+	The algorithm will then have to go through log_2() node of the BST,
+	comparing lexicographically m times at most at every steps.
+
+	Considering the fact that there is N nodes in the BST,
+
+	Ω( ) bound of loadKeys() will be O(log_2(mN)).
+
+7) what is the O( ) bound of contains() for a BST ?
+
+	If the BST is not well balanced, all the nodes will be either smaller
+	or greater than the node we would like to insert.
+
+	The algorithm will then have to go through each and every node of the BST,
+	comparing lexicographically at most m times at every step.
+
+	Considering the fact that there is N nodes in the BST,
+	
+	O( ) bound of contains() will be O(mN).
+
+
+8) what is the Ω( ) bound of contains() for a BST ?
+
+	If the BST is well balanced, we have a complete Binary Tree.
+
+	The algorithm will then have to go through log_2() node of the BST,
+	comparing lexicographically at most m times at every step.
+
+	Considering the fact that there is N nodes in the BST,
+
+	Ω( ) bound of loadKeys() will be O(log_2(mN)).
