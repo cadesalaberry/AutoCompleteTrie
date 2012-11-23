@@ -116,23 +116,9 @@ public class TrieNode {
 
 	public String toString() {
 		
-		String toReturn = "";
-		String revertedString = "";
-		
-		// Goes up the trie, recording its path.
-		TrieNode toWorkWith = this;
-
-		while(toWorkWith.getParent() != null) {
-			
-			revertedString += (char) toWorkWith.getIndexInParent();
-			toWorkWith = toWorkWith.getParent();
-
-		}
-		
-		// Records the path in the right order.
-		for (int i = 0; i < revertedString.length(); i++){
-			toReturn += revertedString.charAt(revertedString.length()-1-i);
-		}
-		return toReturn;
+		if (parent != null)
+	    	return parent.toString() + indexInParent;
+	    else
+	    	return "";
 	}
 }
